@@ -93,12 +93,12 @@ if __name__ == '__main__':
                     boxstr = ''
                     for i in range(len(classes_squeeze)):
                         #if (classes_squeeze[i] == 3 or classes_squeeze[i] == 8) and scores_squeeze[i] > 0.85:
-                        if classes_squeeze[i] == 3 or classes_squeeze[i] == 6 or classes_squeeze[i] == 8 :
-                            ymin = int(round(boxes_squeeze[i][0] * height))
-                            xmin = int(round(boxes_squeeze[i][1] * width))
-                            h = int(round((boxes_squeeze[i][2] - boxes_squeeze[i][0]) * height))
-                            w = int(round((boxes_squeeze[i][3] - boxes_squeeze[i][1])* width))
-                            boxstr = boxstr + str(xmin) + "_" + str(ymin) + "_" + str(w) + "_" + str(h) + ';'
+                        #if classes_squeeze[i] == 3 or classes_squeeze[i] == 6 or classes_squeeze[i] == 8 :
+                        ymin = int(round(boxes_squeeze[i][0] * height))
+                        xmin = int(round(boxes_squeeze[i][1] * width))
+                        h = int(round((boxes_squeeze[i][2] - boxes_squeeze[i][0]) * height))
+                        w = int(round((boxes_squeeze[i][3] - boxes_squeeze[i][1])* width))
+                        boxstr = boxstr + str(xmin) + "_" + str(ymin) + "_" + str(w) + "_" + str(h) + ';'
 
                     #logging.warning('%s', boxstr)
                     if index % 100 == 0:
