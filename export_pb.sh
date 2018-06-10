@@ -13,7 +13,7 @@ output_dir=/output  # 训练目录
 dataset_dir=/data/jia0/car-detection-fasterrcnn-inception-resnet # 数据集目录，这里是写死的，记得修改
 
 train_dir=$output_dir/train
-checkpoint_dir=$train_dir/model.ckpt-19984
+checkpoint_dir=$train_dir
 eval_dir=$output_dir/eval
 
 # config文件
@@ -30,7 +30,7 @@ pipeline_config_path=$output_dir/$config
 #python ./object_detection/train.py --train_dir=$train_dir --pipeline_config_path=$pipeline_config_path
 
 # 导出模型
-python ./object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path $pipeline_config_path --trained_checkpoint_prefix $train_dir/model.ckpt-$current  --output_directory $output_dir/exported_graphs
+python ./object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path $pipeline_config_path --trained_checkpoint_prefix $train_dir/model.ckpt-19984  --output_directory $output_dir/exported_graphs
 
 # 在test.jpg上验证导出的模型
 #python ./object_detection/inference.py --output_dir=$output_dir --dataset_dir=$dataset_dir
