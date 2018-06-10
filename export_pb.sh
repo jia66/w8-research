@@ -34,3 +34,4 @@ python ./object_detection/export_inference_graph.py --input_type image_tensor --
 
 # 在test.jpg上验证导出的模型
 #python ./object_detection/inference.py --output_dir=$output_dir --dataset_dir=$dataset_dir
+python ./object_detection/inference.py
