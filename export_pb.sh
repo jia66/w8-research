@@ -13,7 +13,7 @@ output_dir=/output  # 训练目录
 dataset_dir=/data/jia0/car-detection-fasterrcnn-inception-resnet # 数据集目录，这里是写死的，记得修改
 
 train_dir=$output_dir/train
-checkpoint_dir=$train_dir
+checkpoint_dir=$train_dir/model.ckpt-19984
 eval_dir=$output_dir/eval
 
 # config文件
