@@ -88,8 +88,7 @@ if __name__ == '__main__':
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
             # 多次执行获取数据的操作
-            for index in range(1):
-
+            for index in range(5000):
                 imgname, imgraw = sess.run([features['imgname'], features['imgraw']])
 
                 encoded_jpg_io = io.BytesIO(imgraw)
