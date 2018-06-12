@@ -22,18 +22,18 @@ NUM_CLASSES = 1
 def parse_args(check=True):
     parser = argparse.ArgumentParser()
     parser.add_argument('--output_dir', type=str, required=True)
-    parser.add_argument('--dataset_dir', type=str, required=True)
+    #parser.add_argument('--dataset_dir', type=str, required=True)
     FLAGS, unparsed = parser.parse_known_args()
     return FLAGS, unparsed
 
 
 if __name__ == '__main__':
-    #FLAGS, unparsed = parse_args()
+    FLAGS, unparsed = parse_args()
 
 
     PATH_TO_CKPT = '/output/exported_graphs/frozen_inference_graph.pb'
     PATH_TO_LABELS = '/data/jia0/car-detection-fasterrcnn-inception-resnet/labels_items.txt'
-    export_file = '/output/example_frcnn_in_re.csv'
+    export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re.csv')
 
 
 
