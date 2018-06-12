@@ -33,7 +33,7 @@ if __name__ == '__main__':
 
     PATH_TO_CKPT = '/output/exported_graphs/frozen_inference_graph.pb'
     PATH_TO_LABELS = '/data/jia0/car-detection-fasterrcnn-inception-resnet/labels_items.txt'
-    export_file = '/output/export/example_frcnn_in_re.csv'
+    export_file = '/output/example_frcnn_in_re.csv'
 
 
 
