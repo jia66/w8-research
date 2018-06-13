@@ -30,8 +30,8 @@ pipeline_config_path=$output_dir/$config
 #python ./object_detection/train.py --train_dir=$train_dir --pipeline_config_path=$pipeline_config_path
 
 # 导出模型
-#python ./object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path $pipeline_config_path --trained_checkpoint_prefix $train_dir/model.ckpt-19984  --output_directory $output_dir/exported_graphs
+python ./object_detection/export_inference_graph.py --input_type image_tensor --pipeline_config_path $pipeline_config_path --trained_checkpoint_prefix $train_dir/model.ckpt-11148 --output_directory $output_dir/exported_graphs
 
 # 预测
 #python ./object_detection/inference.py --output_dir=$output_dir --dataset_dir=$dataset_dir
-#python ./object_detection/inference-carjs-tm.py --output_dir=$output_dir
+python ./object_detection/inference-carjs-tm.py --output_dir=$output_dir
