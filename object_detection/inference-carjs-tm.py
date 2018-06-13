@@ -33,8 +33,12 @@ if __name__ == '__main__':
 
     PATH_TO_CKPT = '/output/exported_graphs/frozen_inference_graph.pb'
     PATH_TO_LABELS = '/data/jia0/car-detection-fasterrcnn-inception-resnet/labels_items.txt'
-    export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re2.csv')
 
+    #tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/inference_fr_in_re.tfrecord-*"
+    tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/train1w.tfrecord-*"
+
+    #export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re2.csv')
+    export_file = os.path.join(FLAGS.output_dir, 'example_1w.csv')
 
 
 
@@ -69,7 +73,7 @@ if __name__ == '__main__':
             detection_classes = detection_graph.get_tensor_by_name('detection_classes:0')
             num_detections = detection_graph.get_tensor_by_name('num_detections:0')
 
-            files = tf.train.match_filenames_once("/data/jia0/car-detection-fasterrcnn-inception-resnet/inference_fr_in_re.tfrecord-*")
+            files = tf.train.match_filenames_once(tfrecord_files)
             filename_queue = tf.train.string_input_producer(files, shuffle=True, num_epochs=1)
             reader = tf.TFRecordReader()
             _, serialized_example = reader.read(filename_queue)
