@@ -34,11 +34,11 @@ if __name__ == '__main__':
     PATH_TO_CKPT = '/output/exported_graphs/frozen_inference_graph.pb'
     PATH_TO_LABELS = '/data/jia0/car-detection-fasterrcnn-inception-resnet/labels_items.txt'
 
-    #tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/inference_fr_in_re.tfrecord-*"
-    tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/train1w.tfrecord-*"
+    tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/inference_fr_in_re.tfrecord-*"
+    #tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/train1w.tfrecord-*"
 
-    #export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re2.csv')
-    export_file = os.path.join(FLAGS.output_dir, 'example_1w.csv')
+    export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re3.csv')
+    #export_file = os.path.join(FLAGS.output_dir, 'example_1w.csv')
 
 
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
             # 多次执行获取数据的操作
-            for index in range(10602):
+            for index in range(5000):
 
                 imgname, imgraw = sess.run([features['imgname'], features['imgraw']])
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
                 for i in range(len(classes_squeeze)):
                     # if (classes_squeeze[i] == 3 or classes_squeeze[i] == 8) and scores_squeeze[i] > 0.85:
                     # if classes_squeeze[i] == 3 or classes_squeeze[i] == 6 or classes_squeeze[i] == 8 :
-                    if scores_squeeze[i] > 0.7:
+                    if scores_squeeze[i] > 0.5:
                         ymin = int(round(boxes_squeeze[i][0] * height))
                         xmin = int(round(boxes_squeeze[i][1] * width))
                         h = int(round((boxes_squeeze[i][2] - boxes_squeeze[i][0]) * height))
@@ -128,7 +128,7 @@ if __name__ == '__main__':
                     #print(imgname)
 
                 jpgs.append(str(imgname, encoding = "utf-8"))
-                boxstrs.append(boxstr)
+                boxstrs.append(boxstr[:-1])
 
             coord.request_stop()
             coord.join(threads)
