@@ -92,7 +92,7 @@ if __name__ == '__main__':
             threads = tf.train.start_queue_runners(sess=sess, coord=coord)
 
             # 多次执行获取数据的操作
-            for index in range(5000):
+            for index in range(10602):
 
                 imgname, imgraw = sess.run([features['imgname'], features['imgraw']])
 
@@ -122,8 +122,10 @@ if __name__ == '__main__':
 
                 # logging.warning('%s', boxstr)
                 if index % 100 == 0:
-                    print(index)
-                    print(imgname)
+                    logging.info('%s', index)
+                    logging.info('%s', imgname)
+                    #print(index)
+                    #print(imgname)
 
                 jpgs.append(str(imgname, encoding = "utf-8"))
                 boxstrs.append(boxstr)
