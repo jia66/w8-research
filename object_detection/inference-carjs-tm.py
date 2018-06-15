@@ -37,7 +37,7 @@ if __name__ == '__main__':
     tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/inference_fr_in_re.tfrecord-*"
     #tfrecord_files = "/data/jia0/car-detection-fasterrcnn-inception-resnet/train1w.tfrecord-*"
 
-    export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re_09.csv')
+    export_file = os.path.join(FLAGS.output_dir, 'example_frcnn_in_re_075.csv')
     #export_file = os.path.join(FLAGS.output_dir, 'example_1w.csv')
 
 
@@ -113,7 +113,7 @@ if __name__ == '__main__':
                 for i in range(len(classes_squeeze)):
                     # if (classes_squeeze[i] == 3 or classes_squeeze[i] == 8) and scores_squeeze[i] > 0.85:
                     # if classes_squeeze[i] == 3 or classes_squeeze[i] == 6 or classes_squeeze[i] == 8 :
-                    if scores_squeeze[i] > 0.9:
+                    if scores_squeeze[i] > 0.75:
                         ymin = int(round(boxes_squeeze[i][0] * height))
                         xmin = int(round(boxes_squeeze[i][1] * width))
                         h = int(round((boxes_squeeze[i][2] - boxes_squeeze[i][0]) * height))
